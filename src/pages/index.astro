@@ -8,7 +8,25 @@ import Footer from '../components/Footer.astro';
 import { site } from '../site';
 
 // TODO: change the drinks and prices to your real menu.
-const drinks = [
+// A drink with an `image` shows that photo (from public/) instead of the emoji.
+const drinks: {
+  icon: string;
+  image?: string;
+  name: string;
+  nameKm: string;
+  text: string;
+  textKm: string;
+  price: string;
+}[] = [
+  {
+    icon: '💧',
+    image: '/cambodia-premium-water.jpg',
+    name: 'Cambodia Premium Water',
+    nameKm: 'ទឹកសុទ្ធ Cambodia Premium Water',
+    text: 'Clean drinking water. We sell single bottles and boxes.',
+    textKm: 'ទឹកស្អាតសម្រាប់ផឹក។ យើងលក់ជាដប និងជាកេស។',
+    price: 'Ask us',
+  },
   {
     icon: '🌴',
     name: 'Palm Juice',
@@ -145,6 +163,9 @@ const reasons = [
           {
             drinks.map((d) => (
               <li class="flex flex-col rounded-2xl border border-ink/10 bg-paper p-6">
+                {d.image && (
+                  <img src={d.image} alt={`${d.name} bottles`} loading="lazy" class="mb-4 aspect-square w-full rounded-xl bg-white object-contain" />
+                )}
                 <div class="flex items-start justify-between gap-4">
                   <span class="text-4xl">{d.icon}</span>
                   <span class="rounded-full bg-leaf px-3 py-1 text-sm font-bold text-paper">{d.price}</span>
