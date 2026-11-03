@@ -9,6 +9,6 @@ export const site = {
   location: 'Cambodia',
   // TODO: put your real phone number, Telegram link and email here.
   phone: '012 345 678',
-  telegram: 'https://t.me/your-username',
+  telegram: 'https://t.me/leaphoeun',
   contactEmail: 'hello@example.com',
 };
